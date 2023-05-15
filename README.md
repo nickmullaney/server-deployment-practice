@@ -7,12 +7,12 @@ Nick M
 ### Problem Domain  
 
 This very basic express server is used as a base for CI/CD deployment exercises
+
 ### Links and Resources
 
-- [GitHub Actions ci/cd](https://github.com/rkgallaway/server-deployment-practice-d51/actions) 
-- [back-end dev server url](http://xyz.com) 
-- [back-end prod server url](http://xyz.com)
-- [front-end application](http://xyz.com) 
+- [GitHub Actions ci/cd](https://github.com/nickmullaney/server-deployment-practice/actions) 
+- [back-end dev server url](https://server-development-practice-dev.onrender.com)
+- [back-end prod server url](https://server-deployment-practice-prod-jtud.onrender.com) 
 
 ### Collaborators
 Thanks to Roger Gallaway for the demo code, permission granted to use
