@@ -31,6 +31,15 @@ describe('Server', () => {
     const response = await mockRequest.get('/foo');
     expect(response.status).toEqual(404);
 
-  })
+  });
+
+  // TDD goal: to validate that the word bananais being sent as a parameter
+  test('validate banana parameter', async() =>{
+    let response = await mockRequest.get('/helloPath/something');
+    expect(response.status).toEqual(500);
+
+    response = await mockRequest.get('/helloPath/banana');
+    expect(response.status).toEqual(200);
+  });
 
 })
