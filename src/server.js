@@ -27,7 +27,7 @@ app.get('/', (req, res, next) => {
 
 // How to use query parameters
 // Can add in fourth middleware into the get to use this middleware only on this path
-app.get('/helloquery', fourth, (req, res, next) =>{
+app.get('/helloQuery', fourth, (req, res, next) =>{
 console.log(req.query);
 res.status(200).send('Something Happened');
 });
@@ -35,8 +35,8 @@ res.status(200).send('Something Happened');
 // how to use path(url) parameters, sends key and value when sent
 //TODO- Create some middleware to evaluate our path parameter
 
-app.get('/helloPath/:banana', validator, (req, res, next) =>{
-  console.log(req.params.banana);
+app.get('/helloPath/:id', validator, (req, res, next) =>{
+  console.log(req.params.id);
   res.status(200).send('Something Happened');
 });
 
@@ -49,20 +49,7 @@ app.get('/bad', (req, res, next) => {
 });
 
 app.use('*', notFound);
-app.use((err, req, res, next) =>{
-
-  const errorMessage = typeof(error) === 'string' ? error : error.message;
-  
-  res.status(500).send({
-    //Ternary WTF(What, True, False)
-    error: 500,
-    route: req.path,
-    query: req.query,
-    path: req.params,
-    body: req.body,
-    message: `Server Error: ${errorMessage}`,
-  });
-});
+app.use(errorHandler);
 
 const start = (port) => app.listen(port, () => console.log('listening on port:', port));
 

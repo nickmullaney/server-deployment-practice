@@ -41,7 +41,7 @@ describe('Server', () => {
     let response = await mockRequest.get('/helloPath/something');
     expect(response.status).toEqual(500);
 
-    response = await mockRequest.get('/helloPath/banana');
+    response = await mockRequest.get('/helloPath/id');
     expect(response.status).toEqual(200);
   });
 
