@@ -34,6 +34,8 @@ clone repo, `npm i`, then run `nodemon` in the terminal
 #### Routes
 <!-- All routes should be documented -->
 - GET : `/success` - specific route to hit
+- GET : `/bad` - specific route to hit
+- GET : `/` - proof of life
 
 #### Tests
 
