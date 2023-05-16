@@ -24,7 +24,10 @@ describe('Server', () => {
 
   test('handles bad requests', async () => {
     const response = await mockRequest.get('/bad');
+    console.log(response.body);
     expect(response.status).toEqual(500);
+    expect(response.body.route).toEqual('/bad');
+    expect(response.body.message).to
   });
 
   test('handles not found', async () => {

@@ -1,9 +1,17 @@
 'use strict';
 
-module.exports = (req, res, next) => {
-  res.status(404).send({
-    error: 404,
-    route: req.baseUrl,
-    message: 'Not Found',
+module.exports = (err, req, res, next) =>{
+
+    const errorMessage = typeof(error) === 'string' ? error : error.message;
+    
+    res.status(500).send({
+      //Ternary WTF(What, True, False)
+      error: 500,
+      route: req.path,
+      query: req.query,
+      path: req.params,
+      body: req.body,
+      message: `Server Error: ${errorMessage}`,
+    });
   });
 }

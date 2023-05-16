@@ -8,6 +8,7 @@ const { second, third}  = require('./middleware/second-and-third');
 const fourth = require('./middleware/fourth');
 const validator = require('./middleware/validator');
 const notFound = require('./error-handlers/404');
+const errorHandler = require('./error-handlers/500');
 
 // create express singleton
 const app = express();
@@ -48,6 +49,20 @@ app.get('/bad', (req, res, next) => {
 });
 
 app.use('*', notFound);
+app.use((err, req, res, next) =>{
+
+  const errorMessage = typeof(error) === 'string' ? error : error.message;
+  
+  res.status(500).send({
+    //Ternary WTF(What, True, False)
+    error: 500,
+    route: req.path,
+    query: req.query,
+    path: req.params,
+    body: req.body,
+    message: `Server Error: ${errorMessage}`,
+  });
+});
 
 const start = (port) => app.listen(port, () => console.log('listening on port:', port));
 
