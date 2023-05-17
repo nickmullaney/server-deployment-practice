@@ -1,6 +1,6 @@
 'use strict'
 
-const first = require(".");
+const first = require('.');
 
 describe('First middleware', () => {
   let consoleSpy;
